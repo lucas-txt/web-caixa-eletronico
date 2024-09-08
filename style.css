@@ -1,0 +1,205 @@
+@charset "UTF-8";
+
+
+* {
+    padding: 0px;
+    margin: 0px;
+    font-family:  Arial, Helvetica, sans-serif;
+    font-size: calc(32*var(--caixa-tamanho));
+    box-sizing: border-box;
+}
+
+:root {
+    --caixa-tamanho: .5px;
+
+    --sombra: 0px 2px 5px rgba(54, 54, 54, 0.345);
+
+    --preto: #212121;
+    --preto-75: #212121bf;
+    --preto-50: #21212180;
+    --preto-25: #21212140;
+    --preto-10: #2121211a;
+    --preto-5: #2121210d;
+
+
+    --branco: #ffffff;
+    --branco-10: rgb(229.5, 229.5, 229.5);
+    --branco-20: rgb(204, 204, 204);
+    --branco-30: rgb(178.5, 178.5, 178.5);
+    --branco-40: rgb(153, 153, 153);
+    --branco-50: rgb(127.5, 127.5, 127.5);
+    
+    --azul: #0c6dcf;
+    --rosa: #df0f51;
+    /* --vermelho: #CF3000; */
+    --verde: #3D8923;
+    --amarelo: #E4A500;
+    --preto-principal: rgb(36, 36, 36);
+    --preto-secundario: rgb(73, 73, 73);
+
+    /* --amarelo-escuro: #bd8800; */
+    /* --verde-escuro: #285b17; */
+    /* --marrom: #864800; */
+}
+
+#caixa-eletronico {
+    height: calc(1000*var(--caixa-tamanho));
+    width: calc(1400*var(--caixa-tamanho));
+    background-color: var(--azul);
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+}
+
+[class^="tela"] {
+    grid-area: 1 / 1 / 4 / 4;
+    background-color: var(--rosa);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#tela {
+    height: 80%;
+    width: 80%;
+    background-color: pink;
+
+    border: calc(20*var(--caixa-tamanho)) solid var(--preto);
+}
+
+[class^="teclado"] {
+    grid-area: 1 / 4 / 4 / 6;
+    background-color: rgb(36, 36, 36);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#teclado {
+    height: 80%;
+    width: 80%;
+    background-color: var(--verde);
+    /* background-color: rgb(73, 73, 73); */
+    grid-template: auto;
+    
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+}
+
+[class^="tecla-"] {
+    text-align: center;
+    height: 80%;
+    width: 80%;
+    align-self: center;
+    justify-self: center;
+    position: relative;
+
+    
+    box-shadow: 6px 6px black;
+
+    padding-top: calc(30*var(--caixa-tamanho));
+    border: calc(6*var(--caixa-tamanho)) solid rgb(244, 244, 244);
+    border-radius: calc(30*var(--caixa-tamanho));
+    background-color: gray;
+
+    transition-duration: .3s;
+}
+
+[class^="tecla-"]:active {
+    transform: translate(5px, 5px);
+    box-shadow: none;
+}
+
+.tecla-0 {
+    grid-area: 4/2 / 5/3;
+}
+
+[class^="saida"] {
+    grid-area: 4 / 1 / 6 / 4;
+    background-color: var(--amarelo);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#saida {
+    width: 70%;
+    height: 10%;
+    background-color: var(--preto-75);
+    border: calc(15*var(--caixa-tamanho)) solid var(--preto);
+}
+
+[class^="cartao"] {
+    grid-area: 4/4 / 6/6;
+    background-color: var(--azul);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#cartao {
+    height: 60%;
+    width: 60%;
+    background-color: lightgray;
+}
+
+[class$="-cartao"] {
+    background-color: var(--preto-75);
+    position: absolute;
+
+}
+
+[class^="cima"] {
+    width: 10.5em;
+    height: 3em;
+    clip-path: polygon(0% 0%, 100% 0%, 80% 100%, 20% 100%);
+}
+
+[class^="baixo"] {
+    width: 10.5em;   
+    height: 3em;
+    clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+    
+    position: relative;
+    top: 60%;
+}
+
+[class^="esquerda"] {
+    height: 7.5em;   
+    width: 2.5em;
+
+    clip-path: polygon(0% 0%, 100% 40%, 100% 60%, 0% 100%);
+}
+
+[class^="direita"] {
+    height: 7.5em;   
+    width: 2.5em;
+
+    left: 86.3%;
+
+    clip-path: polygon(0% 40%, 0% 60%, 100% 100%, 100% 0%);
+}
+
+
+
+#entrada {
+    width: 6.5em;
+    height: 1.5em;
+    background-color: var(--preto-75);
+    
+    border: calc(10*var(--caixa-tamanho)) solid var(--preto);
+    position: absolute;
+    top: 77.6%;
+    left: 72.5%;
+}
